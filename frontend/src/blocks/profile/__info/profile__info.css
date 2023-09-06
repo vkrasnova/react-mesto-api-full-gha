@@ -1,0 +1,22 @@
+.profile__info {
+  display: flex;
+  align-items: center;
+  column-gap: 18px;
+}
+
+@media (max-width: 917px) {
+
+  .profile__info {
+    column-gap: 10px;
+  }
+
+}
+
+@media (max-width: 618px) {
+
+  .profile__info {
+    justify-content: center;
+    transform: translateX(14px);
+  }
+
+}

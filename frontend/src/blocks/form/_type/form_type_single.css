@@ -1,0 +1,12 @@
+.form_type_single {
+  margin-top: 60px;
+  max-width: 358px;
+}
+
+@media (max-width: 618px) {
+
+  .form_type_single {
+    max-width: 260px;
+  }
+
+}

@@ -1,0 +1,8 @@
+.profile__avatar-container {
+  background-color: #000;
+  background-image: url(../../../images/icons/pencil.svg);
+  background-position: center;
+  background-size: 26px;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+}

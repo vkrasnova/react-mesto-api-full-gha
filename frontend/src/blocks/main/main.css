@@ -1,0 +1,21 @@
+.main {
+  margin: 0 auto;
+  max-width: 880px;
+  padding: 0 19px;
+}
+
+@media (max-width: 917px) {
+
+  .main {
+    max-width: 581px;
+  }
+
+}
+
+@media (max-width: 618px) {
+
+  .main {
+    max-width: 282px;
+  }
+
+}

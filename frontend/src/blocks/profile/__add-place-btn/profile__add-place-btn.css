@@ -1,0 +1,33 @@
+.profile__add-place-btn {
+  max-width: 150px;
+  width: 100%;
+  height: 50px;
+  background: url(../../../images/icons/plus.svg) center no-repeat;
+  background-size: 22px;
+  border: 2px solid #FFFFFF;
+  border-radius: 2px;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+}
+
+.profile__add-place-btn:hover {
+  opacity: .6;
+}
+
+@media (max-width: 917px) {
+
+  .profile__add-place-btn {
+    max-width: 100px;
+    background-size: 16px;
+  }
+
+}
+
+@media (max-width: 618px) {
+
+  .profile__add-place-btn {
+    max-width: 282px;
+  }
+
+}

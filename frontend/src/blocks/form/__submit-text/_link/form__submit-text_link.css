@@ -1,0 +1,19 @@
+.form__submit-text_link {
+  text-decoration: none;
+  cursor: pointer;
+  transition: all .2s ease-in;
+}
+
+.form__submit-text_link:hover {
+  opacity: .6;
+}
+
+/*******************/
+
+.form__submit-text_link_style_dark {
+  color: #fff;
+}
+
+.form__submit-text_link_style_light {
+  color: #000;
+}
