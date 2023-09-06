@@ -8,6 +8,7 @@ const { rateLimit } = require('express-rate-limit');
 const { errors } = require('celebrate');
 const routes = require('./routes');
 const errorHandler = require('./utils/errors/errorHandler');
+const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const { PORT = 3000 } = process.env;
 const app = express();
@@ -26,7 +27,12 @@ mongoose.connect('mongodb://127.0.0.1:27017/mestodb', {
   useNewUrlParser: true,
 });
 
+app.use(requestLogger);
+
 app.use(routes);
+
+app.use(errorLogger);
+
 app.use(errors());
 app.use(errorHandler);
 
