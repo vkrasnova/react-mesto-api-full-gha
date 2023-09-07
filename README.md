@@ -6,7 +6,7 @@
 
 Адрес репозитория: https://github.com/vkrasnova/react-mesto-api-full-gha
 
-Адрес сайта: https://mesto-russia.ru
+Адрес сайта: https://...
 
 ## Ссылки на проект
 
