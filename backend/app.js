@@ -2,6 +2,7 @@ require('dotenv').config({ path: './key.env' });
 
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const helmet = require('helmet');
 const { rateLimit } = require('express-rate-limit');
@@ -10,7 +11,11 @@ const routes = require('./routes');
 const errorHandler = require('./utils/errors/errorHandler');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
-const { PORT = 3000 } = process.env;
+const {
+  PORT = 3000,
+  DB_ADDRESS = 'mongodb://127.0.0.1:27017/mestodb',
+} = process.env;
+
 const app = express();
 
 const limiter = rateLimit({
@@ -18,12 +23,23 @@ const limiter = rateLimit({
   max: 100,
 });
 
+const corsOptions = {
+  origin: [
+    'http://localhost:3000',
+    'https://localhost:3000',
+  ],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(cookieParser());
 app.use(helmet());
 app.use(limiter);
 
-mongoose.connect('mongodb://127.0.0.1:27017/mestodb', {
+mongoose.connect(DB_ADDRESS, {
   useNewUrlParser: true,
 });
 

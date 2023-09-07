@@ -23,7 +23,8 @@ class Api {
 
     return this._request('users/me', {
       method: 'GET',
-      headers: this._headers
+      headers: this._headers,
+      credentials: 'include',
     });
 
   }
@@ -32,7 +33,8 @@ class Api {
 
     return this._request('cards', {
       method: 'GET',
-      headers: this._headers
+      headers: this._headers,
+      credentials: 'include',
     });
 
   }
@@ -42,6 +44,7 @@ class Api {
     return this._request('users/me', {
       method: 'PATCH',
       headers: this._headers,
+      credentials: 'include',
       body: JSON.stringify({ name, about })
     });
 
@@ -52,6 +55,7 @@ class Api {
     return this._request('cards', {
       method: 'POST',
       headers: this._headers,
+      credentials: 'include',
       body: JSON.stringify({ name, link })
     });
 
@@ -61,7 +65,8 @@ class Api {
 
     return this._request(`cards/${cardID}`, {
       method: 'DELETE',
-      headers: this._headers
+      headers: this._headers,
+      credentials: 'include',
     });
 
   }
@@ -70,7 +75,8 @@ class Api {
 
     return this._request(`cards/likes/${cardID}`, {
       method: 'PUT',
-      headers: this._headers
+      headers: this._headers,
+      credentials: 'include',
     });
 
   }
@@ -79,7 +85,8 @@ class Api {
 
     return this._request(`cards/likes/${cardID}`, {
       method: 'DELETE',
-      headers: this._headers
+      headers: this._headers,
+      credentials: 'include',
     });
 
   }
@@ -97,6 +104,7 @@ class Api {
     return this._request('users/me/avatar', {
       method: 'PATCH',
       headers: this._headers,
+      credentials: 'include',
       body: JSON.stringify({ avatar })
     });
 
@@ -105,10 +113,8 @@ class Api {
 }
 
 export const api = new Api({
-  url: "https://mesto.nomoreparties.co/v1/cohort-65",
+  url: "http://localhost:3001",
   headers: {
-    authorization:
-      "caa9776b-e67a-468e-a1fe-7b61e8271d58",
     "Content-Type": "application/json",
   }
 });

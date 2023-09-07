@@ -26,6 +26,7 @@ class Auth {
     return this._request('signup', {
       method: 'POST',
       headers: this._headers,
+      credentials: 'include',
       body: JSON.stringify({ email, password })
     });
 
@@ -36,6 +37,7 @@ class Auth {
     return this._request('signin', {
       method: 'POST',
       headers: this._headers,
+      credentials: 'include',
       body: JSON.stringify({ email, password })
     })
 
@@ -48,7 +50,8 @@ class Auth {
       headers: {
         ...this._headers,
         "Authorization" : `Bearer ${jwt}`
-      }
+      },
+      credentials: 'include',
     });
 
   }
@@ -56,7 +59,7 @@ class Auth {
 }
 
 export const auth = new Auth({
-  url: "https://auth.nomoreparties.co",
+  url: "http://localhost:3001",
   headers: {
     "Content-Type": "application/json",
   }
