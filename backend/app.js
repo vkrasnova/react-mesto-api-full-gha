@@ -26,7 +26,6 @@ const limiter = rateLimit({
 const corsOptions = {
   origin: [
     'http://localhost:3000',
-    'https://localhost:3000',
   ],
   allowedHeaders: ['Content-Type', 'Authorization'],
   methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],

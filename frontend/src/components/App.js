@@ -41,12 +41,11 @@ function App() {
   
   const [isRegSuccesful, setIsRegSuccesful] = useState(false);
 
-  const checkToken = () => {
-    const jwt = localStorage.getItem('jwt');
-    auth.getData(jwt)
+  const checkAuth = () => {
+    auth.getUserData()
       .then((res) => {
         setIsLoggedIn(true);
-        setEmail(res.data.email);
+        setEmail(res.email);
         navigate('/');
       })
       .catch(() => {
@@ -55,7 +54,7 @@ function App() {
   }
 
   useEffect(() => {
-    checkToken();
+    checkAuth();
   // eslint-disable-next-line
   }, []);
 
@@ -65,7 +64,7 @@ function App() {
       Promise.all([api.getUserInfo(), api.getInitialPlaces()])
         .then(([userData, initialCards]) => {
           setCurrentUser(userData);
-          setCards(initialCards);
+          setCards(initialCards.reverse());
         })
         .catch(console.error);
     }
@@ -94,9 +93,8 @@ function App() {
   const handleLogin = ({ email, password }) => {
 
     auth.authorize({ email, password })
-      .then(({ token }) => {
+      .then(() => {
         setIsLoggedIn(true);
-        localStorage.setItem('jwt', token);
         setEmail(email);
         navigate('/', {replace: true});
       })
@@ -107,10 +105,16 @@ function App() {
   }
 
   const handleSignOut = () => {
-    localStorage.removeItem('jwt');
-    setIsLoggedIn(false);
-    setEmail('');
-    navigate('/sign-in', {replace: true});
+    auth.logout()
+      .then(() => {
+        setIsLoggedIn(false);
+        setEmail('');
+        navigate('/sign-in', {replace: true});
+      })
+      .catch((error) => {
+        alert('Выход не выполнен.');
+        console.log(error);
+      });
   }
 
   const handleEditProfileClick = () => {

@@ -26,7 +26,6 @@ class Auth {
     return this._request('signup', {
       method: 'POST',
       headers: this._headers,
-      credentials: 'include',
       body: JSON.stringify({ email, password })
     });
 
@@ -43,14 +42,19 @@ class Auth {
 
   }
 
-  getData = (jwt) => {
+  logout = () => {
+    return this._request('signout', {
+      method: 'GET',
+      headers: this._headers,
+      credentials: 'include'
+    })
+  }
+
+  getUserData = () => {
 
     return this._request('users/me', {
       method: 'GET',
-      headers: {
-        ...this._headers,
-        "Authorization" : `Bearer ${jwt}`
-      },
+      headers: this._headers,
       credentials: 'include',
     });
 
