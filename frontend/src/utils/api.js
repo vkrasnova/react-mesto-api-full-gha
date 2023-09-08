@@ -73,7 +73,7 @@ class Api {
 
   putLike(cardID) {
 
-    return this._request(`cards/likes/${cardID}`, {
+    return this._request(`cards/${cardID}/likes`, {
       method: 'PUT',
       headers: this._headers,
       credentials: 'include',
@@ -83,7 +83,7 @@ class Api {
 
   deleteLike(cardID) {
 
-    return this._request(`cards/likes/${cardID}`, {
+    return this._request(`cards/${cardID}/likes`, {
       method: 'DELETE',
       headers: this._headers,
       credentials: 'include',
