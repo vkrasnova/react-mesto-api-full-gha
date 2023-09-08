@@ -63,7 +63,7 @@ class Auth {
 }
 
 export const auth = new Auth({
-  url: "http://api.mesto-russia.ru",
+  url: "https://api.mesto-russia.ru",
   headers: {
     "Content-Type": "application/json",
   }

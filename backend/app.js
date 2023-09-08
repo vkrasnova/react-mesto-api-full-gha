@@ -27,6 +27,7 @@ const corsOptions = {
   origin: [
     'http://localhost:3000',
     'http://mesto-russia.ru',
+    'https://mesto-russia.ru',
   ],
   allowedHeaders: ['Content-Type', 'Authorization'],
   methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
