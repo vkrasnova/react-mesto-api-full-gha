@@ -113,7 +113,7 @@ class Api {
 }
 
 export const api = new Api({
-  url: "http://localhost:3001",
+  url: "http://api.mesto-russia.ru",
   headers: {
     "Content-Type": "application/json",
   }
