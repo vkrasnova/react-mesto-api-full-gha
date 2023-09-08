@@ -6,12 +6,10 @@
 
 Адрес репозитория: https://github.com/vkrasnova/react-mesto-api-full-gha
 
-Адрес сайта: https://mesto-russia.ru
-
 ## Ссылки на проект
 
-IP-адрес x.x.x.x
+IP-адрес: 51.250.101.165
 
-Frontend https://...
+Frontend https://mesto-russia.ru
 
-Backend https://...
+Backend https://api.mesto-russia.ru
