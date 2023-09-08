@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js",
+    "dev:inspect": "nodemon --inspect app.js",
     "lint": "npx eslint ."
   },
   "keywords": [],

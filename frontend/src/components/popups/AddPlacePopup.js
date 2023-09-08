@@ -56,7 +56,7 @@ const AddPlacePopup = ({ isOpen, onAddPlace }) => {
         name="placeURL"
         placeholder="Ссылка на картинку"
         minLength="2"
-        maxLength="40"
+        maxLength="200"
         value={values.placeURL || ''}
         onChange={handleChange}
         cssStyle={cssStyle}
